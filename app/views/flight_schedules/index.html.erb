@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<%= form_with(url: "flight_schedules", html: {class: "d-flex"}, method: :get) do |f| %>
+  <%= f.collection_select :departure_airport_id, Airport.all, :id, :city, options ={prompt: "Please Select Departure", selected: params[:departure_airport_id]}, {class: "form-select form-select-lg mb-3"} %>
+  <%= f.collection_select :destination_airport_id, Airport.all, :id, :city, options ={prompt: "Please Select Destination", selected: params[:destination_airport_id]}, {class: "form-select form-select-lg mb-3"} %>
+  <%= f.text_field :departure_date, class: "input-group-text mb-3", placeholder: "Enter Departure Date dd/mm/yyy", value: params[:departure_date] %>
+  <%= f.submit 'Search', class: "btn btn-outline-success mb-3"%>
+<% end %>
+
+<h1>Flight Schedules</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Flight</th>
+      <th>Departure airport</th>
+      <th>Destination airport</th>
+      <th>Date</th>
+      <th>Price</th>
+      <th colspan="2"></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @flight_schedules.each do |flight_schedule| %>
+      <tr>
+        <td><%= flight_schedule.flight.name %> - <%= flight_schedule.flight.code %></td>
+        <td><%= flight_schedule.departure_airport.city %></td>
+        <td><%= flight_schedule.destination_airport.city %></td>
+        <td><%= flight_schedule.date %></td>
+        <td><%= flight_schedule.price %></td>
+        <td><%= link_to 'Book', new_booking_path(flight_schedule_id: flight_schedule, passenger_count: 1) %></td>
+        <td><%= link_to 'Report', flight_schedule_path(flight_schedule) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% link_to 'New Flight Schedule', new_flight_schedule_path %>

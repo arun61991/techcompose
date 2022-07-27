@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Flight schedule:</strong>
+  <%= @booking.flight_schedule.flight.name %> - <%= @booking.flight_schedule.flight.code %>
+</p>
+
+<p>
+  <strong>PNR:</strong>
+  <%= @booking.booking_pnr %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @booking.status %>
+</p>
+__________________________________________________
+<% @booking.passenger_details.each do |pd| %>
+  <p>
+    <strong>Passenger Name:</strong>
+    <%= pd.first_name %> <%= pd.last_name %>
+  </p>
+  <p>
+    <strong>Date of Birth:</strong>
+    <%= pd.date_of_birth %>
+  </p>
+  <p>
+    <strong>Gender:</strong>
+    <%= pd.gender %>
+  </p>
+  <p>
+    <strong>Booking At:</strong>
+    <%= pd.created_at %>
+  </p>
+  <p>
+    <strong>Last Update At:</strong>
+    <%= pd.updated_at %>
+  </p>
+  __________________________________________________
+  <br>
+<% end %>
+
+<%= link_to 'Back', bookings_path %>

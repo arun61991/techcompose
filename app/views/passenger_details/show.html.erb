@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Booking:</strong>
+  <%= @passenger_detail.booking_id %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @passenger_detail.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @passenger_detail.last_name %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @passenger_detail.gender %>
+</p>
+
+<p>
+  <strong>Date of birth:</strong>
+  <%= @passenger_detail.date_of_birth %>
+</p>
+
+<%= link_to 'Edit', edit_passenger_detail_path(@passenger_detail) %> |
+<%= link_to 'Back', passenger_details_path %>

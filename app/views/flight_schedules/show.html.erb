@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Flight:</strong>
+  <%= @flight_schedule.flight.name %> - <%= @flight_schedule.flight.code %>
+</p>
+
+<p>
+  <strong>Departure airport:</strong>
+  <%= @flight_schedule.departure_airport.city %>
+</p>
+
+<p>
+  <strong>Destination airport:</strong>
+  <%= @flight_schedule.destination_airport.city %>
+</p>
+
+<p>
+  <strong>Departure Date:</strong>
+  <%= @flight_schedule.date %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @flight_schedule.price %>
+</p>
+
+<p>
+  <strong>Number of confirmed seat:</strong>
+  <%= @flight_schedule.seat_booked %>
+</p>
+
+<p>
+  <strong>Number of Total seat:</strong>
+  <%= @flight_schedule.flight.no_of_seat %>
+</p>
+
+<p>
+  <strong>Number of Total Men Passenger:</strong>
+  <%= @total_men_passenger %>
+</p>
+
+<p>
+  <strong>Number of Total Women Passenger:</strong>
+  <%= @total_women_passenger %>
+</p>
+
+<%= link_to 'Edit', edit_flight_schedule_path(@flight_schedule) %> |
+<%= link_to 'Back', flight_schedules_path %>

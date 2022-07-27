@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking_id: 1
+  first_name: 
+  last_name: MyString
+  gender: MyString
+  date_of_birth: 2022-07-27
+
+two:
+  booking_id: 1
+  first_name: 
+  last_name: MyString
+  gender: MyString
+  date_of_birth: 2022-07-27
